@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api/corso" name="api-corso" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/hello">
+        <inSequence>
+            <sequence key="corso-helloworld-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/user/{username}/hello">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.username')" name="username"/>
+            </log>
+            <sequence key="corso-helloworlduser-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/user/hello?user={username}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.username')" name="username"/>
+            </log>
+            <sequence key="corso-helloworlduser-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/jsonplaceholder/user">
+        <inSequence>
+            <sequence key="corso-helloworld-jsonplaceholder-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+</api>

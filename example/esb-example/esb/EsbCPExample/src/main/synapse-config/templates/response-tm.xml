@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="response-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="data"/>
+    <parameter name="code"/>
+    <parameter name="message"/>
+    <parameter name="httpresponsecode"/>
+    <sequence>
+        <log level="custom">
+            <property name="template_name_init" value="response-tm START"/>
+            <property expression="$func:code" name="tm_pin_code"/>
+            <property expression="$func:message" name="tm_pin_message"/>
+            <property expression="$func:httpresponsecode" name="tm_pin_httpresponsecode"/>
+        </log>
+        <filter xmlns:ns="http://org.apache.synapse/xsd" xpath="get-property('data') = 'ND'">
+            <then>
+                <payloadFactory media-type="json">
+                    <format>{
+						"code":"$1",
+						"message":"$2"
+						}</format>
+                    <args>
+                        <arg evaluator="xml" expression="$func:code"/>
+                        <arg evaluator="xml" expression="$func:message"/>
+                    </args>
+                </payloadFactory>
+            </then>
+            <else>
+                <payloadFactory media-type="json">
+                    <format>{
+						"code":"$1",
+						"message":"$2",
+						"data":[$3]
+						}</format>
+                    <args>
+                        <arg evaluator="xml" expression="$func:code"/>
+                        <arg evaluator="xml" expression="$func:message"/>
+                        <arg evaluator="xml" expression="$func:data"/>
+                    </args>
+                </payloadFactory>
+            </else>
+        </filter>
+        <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+        <property expression="json-eval($.)" name="response" scope="default" type="STRING"/>
+        <log level="custom">
+            <property expression="get-property('response')" name="logresponse"/>
+        </log>
+        <respond/>
+    </sequence>
+</template>

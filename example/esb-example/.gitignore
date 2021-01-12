@@ -1,0 +1,6 @@
+*.log
+*.meta
+target/
+./target
+.settings*
+.classpath*

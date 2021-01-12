@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="errorhandler-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="source"/>
+    <parameter name="text"/>
+    <sequence>
+        <log category="ERROR" level="custom">
+            <property expression="$func:source" name="source"/>
+            <property expression="$func:text" name="error_text"/>
+            <property expression="get-property('ERROR_CODE')" name="error_code"/>
+            <property expression="get-property('ERROR_MESSAGE')" name="error_message"/>
+            <property expression="get-property('ERROR_DETAIL')" name="error_detail"/>
+            <property expression="get-property('ERROR_EXCEPTION')" name="error_exception"/>
+        </log>
+        <property description="set http status code" name="HTTP_SC" scope="axis2" type="STRING" value="500"/>
+        <property description="set no entity body" name="NO_ENTITY_BODY" scope="axis2" type="BOOLEAN" value="true"/>
+        <payloadFactory description="create response body" media-type="json">
+            <format>{
+				"error_code":"$1",
+				"error_message":"$2"}</format>
+            <args>
+                <arg evaluator="xml" expression="source"/>
+                <arg evaluator="xml" expression="error_text"/>
+            </args>
+        </payloadFactory>
+        <property expression="json-eval($.)" name="response" scope="default" type="STRING"/>
+        <log level="custom">
+            <property expression="get-property('response')" name="logresponse"/>
+        </log>
+        <respond/>
+    </sequence>
+</template>
