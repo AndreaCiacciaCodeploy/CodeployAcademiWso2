@@ -28,3 +28,4 @@ xattr -d com.apple.quarantine Eclipse.app/
 
 Per avviare l'ambiente in locale avviare wso2esb-5.0.0/bin/wso2server.sh (unix) o wso2esb-5.0.0/bin/wso2server.bat (windows)
 La configurazione di base (per 5.0.0) avvia l'ambiente sulla porta 9443 (https://localhost:9443/carbon/admin/login.jsp)
+
