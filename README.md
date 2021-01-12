@@ -19,7 +19,7 @@ e sulle differenze con la versione 5.0.0
 - scaricare la versione server wso2 esb 5.0.0 al link seguente https://wso2.com/integration/previous-releases/
 - sempre dallo stesso link scaricare la versione di Tooling full distribution
 
-N.B. Il developer studio (tooling) sono un ambiente Eclipse con plugin wso2 già preimpostati.
+N.B. Il developer studio (tooling) è un ambiente Eclipse con plugin wso2 già preimpostati.
 Ho individuato un errore nell'avvio di tale IDE su MacBookPro Catalina 10.15.7
 Per risolvere tale anomalia:
 In the Eclipse.app folder:
