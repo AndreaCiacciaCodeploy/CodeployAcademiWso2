@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-helloworld-jsonplaceholder-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call-template description="jsonplaceholder-user-tm" target="jsonplaceholder-user-tm"/>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

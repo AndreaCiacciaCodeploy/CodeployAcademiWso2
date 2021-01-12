@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="api-corso" groupId="com.corso.wso2.esb-example.EsbCPExample.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api-corso.xml</file>
+    </artifact>
+    <artifact name="corso-helloworld-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-helloworld-seq.xml</file>
+    </artifact>
+    <artifact name="errorhandler-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/errorhandler-tm.xml</file>
+    </artifact>
+    <artifact name="response-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/response-tm.xml</file>
+    </artifact>
+    <artifact name="corso-helloworlduser-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-helloworlduser-seq.xml</file>
+    </artifact>
+    <artifact name="corso-helloworld-jsonplaceholder-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-helloworld-jsonplaceholder-seq.xml</file>
+    </artifact>
+    <artifact name="jsonplaceholder-user-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/jsonplaceholder-user-tm.xml</file>
+    </artifact>
+</artifacts>

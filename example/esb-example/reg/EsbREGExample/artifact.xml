@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="jsonplaceholder-user-ep" groupId="com.corso.wso2.esb-example.EsbREGExample.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>example/jsonplaceholder-user-ep.xml</file>
+            <path>/_system/governance/example</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
+</artifacts>
