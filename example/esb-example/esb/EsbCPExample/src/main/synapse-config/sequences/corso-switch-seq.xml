@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-switch-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="get-property('uri.var.operation')" name="operation" scope="default" type="STRING"/>
+    <switch source="get-property('operation')">
+        <case regex="1">
+            <payloadFactory media-type="json">
+                <format>{ "message": "operazione 1" }</format>
+                <args/>
+            </payloadFactory>
+        </case>
+        <case regex="2">
+            <payloadFactory media-type="json">
+                <format>{ "message": "operazione 2" }</format>
+                <args/>
+            </payloadFactory>
+        </case>
+        <case regex="3">
+            <payloadFactory media-type="json">
+                <format>{ "message": "operazione 3" }</format>
+                <args/>
+            </payloadFactory>
+        </case>
+        <default>
+            <call-template description="errorresponse-tm" target="errorresponse-tm">
+                <with-param name="source" value="200"/>
+                <with-param name="text" value="valore non consentito"/>
+            </call-template>
+            <respond/>
+        </default>
+    </switch>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="corso-filter-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+<sequence name="corso-filterregex-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <property expression="get-property('uri.var.operation')" name="operation" scope="default" type="STRING"/>
     <filter regex="false" source="boolean(get-property('nonesisto'))">
         <then>

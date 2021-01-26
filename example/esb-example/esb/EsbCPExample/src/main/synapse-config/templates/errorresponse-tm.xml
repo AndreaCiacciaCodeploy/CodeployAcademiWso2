@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<template name="errorhandler-tm" xmlns="http://ws.apache.org/ns/synapse">
+<template name="errorresponse-tm" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="source"/>
     <parameter name="text"/>
     <sequence>
@@ -11,7 +11,7 @@
             <property expression="get-property('ERROR_DETAIL')" name="error_detail"/>
             <property expression="get-property('ERROR_EXCEPTION')" name="error_exception"/>
         </log>
-        <property description="set http status code" name="HTTP_SC" scope="axis2" type="STRING" value="500"/>
+        <property description="set http status code" name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
         <property description="set no entity body" name="NO_ENTITY_BODY" scope="axis2" type="BOOLEAN" value="true"/>
         <payloadFactory description="create response body" media-type="json">
             <format>{

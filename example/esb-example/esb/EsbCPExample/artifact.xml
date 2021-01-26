@@ -32,4 +32,13 @@
     <artifact name="corso-filterregex-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/corso-filterregex-seq.xml</file>
     </artifact>
+    <artifact name="corso-switch-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-switch-seq.xml</file>
+    </artifact>
+    <artifact name="errorresponse-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/errorresponse-tm.xml</file>
+    </artifact>
+    <artifact name="corso-payloadfactoryxml-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-payloadfactoryxml-seq.xml</file>
+    </artifact>
 </artifacts>
