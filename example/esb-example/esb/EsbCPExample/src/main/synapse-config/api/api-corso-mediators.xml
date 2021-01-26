@@ -15,4 +15,19 @@
             </call-template>
         </faultSequence>
     </resource>
+    <resource methods="GET" protocol="http" uri-template="/filter/regex?op={operation}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.operation')" name="operation"/>
+            </log>
+            <sequence key="corso-filterregex-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
 </api>

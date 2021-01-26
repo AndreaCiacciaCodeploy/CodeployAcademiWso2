@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="corso-filter-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <property expression="get-property('uri.var.operation')" name="operation" scope="default" type="STRING"/>
-    <filter xmlns:ns="http://org.apache.synapse/xsd" xpath="get-property('operation') = 1">
+    <filter regex="false" source="boolean(get-property('nonesisto'))">
         <then>
             <payloadFactory media-type="json">
                 <format>{ "message": "operazione 1" }</format>
@@ -10,7 +10,7 @@
         </then>
         <else>
             <payloadFactory media-type="json">
-                <format>{ "message": "operazione 2" }</format>
+                <format>{ "message": "property non presente" }</format>
                 <args/>
             </payloadFactory>
         </else>

@@ -29,4 +29,7 @@
     <artifact name="corso-filter-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/corso-filter-seq.xml</file>
     </artifact>
+    <artifact name="corso-filterregex-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-filterregex-seq.xml</file>
+    </artifact>
 </artifacts>
