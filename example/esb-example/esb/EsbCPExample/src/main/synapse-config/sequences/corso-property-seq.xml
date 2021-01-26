@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-property-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="esempio" scope="default" type="STRING" value="sono una property di esempio"/>
+    <property expression="get-property('esempio')" name="get_esempmio" scope="default" type="STRING"/>
+    <log>
+        <property expression="get-property('esempio')" name="esempio_log"/>
+        <property expression="get-property('get_esempio')" name="get_esempio_log"/>
+    </log>
+</sequence>

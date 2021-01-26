@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-filter-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <filter xmlns:ns="http://org.apache.synapse/xsd" xpath="get-property('operation') = 1">
+        <then>
+            <payloadFactory media-type="json">
+                <format>{ "message": "operazione 1" }</format>
+                <args/>
+            </payloadFactory>
+        </then>
+        <else>
+            <payloadFactory media-type="json">
+                <format>{ "message": "operazione 2" }</format>
+                <args/>
+            </payloadFactory>
+        </else>
+    </filter>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

@@ -20,4 +20,13 @@
     <artifact name="jsonplaceholder-user-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/templates/jsonplaceholder-user-tm.xml</file>
     </artifact>
+    <artifact name="corso-property-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-property-seq.xml</file>
+    </artifact>
+    <artifact name="api-corso-mediators" groupId="com.corso.wso2.esb-example.EsbCPExample.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api-corso-mediators.xml</file>
+    </artifact>
+    <artifact name="corso-filter-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-filter-seq.xml</file>
+    </artifact>
 </artifacts>
