@@ -14,11 +14,9 @@
     </payloadFactory>
     <header name="Action" scope="default" value="urn:echoInt"/>
     <log level="full"/>
-    <call>
+    <send>
         <endpoint>
             <address format="soap11" uri="http://localhost:8280/services/echo"/>
         </endpoint>
-    </call>
-    <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
-    <respond/>
+    </send>
 </sequence>

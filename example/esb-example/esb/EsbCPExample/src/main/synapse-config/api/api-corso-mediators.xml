@@ -49,6 +49,33 @@
         <inSequence>
             <sequence key="corso-payloadfactoryxml-seq"/>
         </inSequence>
+        <outSequence>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <send/>
+        </outSequence>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/payloadfactoryjson">
+        <inSequence>
+            <sequence key="corso-payloadfactoryjson-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/scriptjs">
+        <inSequence>
+            <sequence key="corso-scriptjs-seq"/>
+        </inSequence>
         <outSequence/>
         <faultSequence>
             <call-template description="errorhandler-tm" target="errorhandler-tm">

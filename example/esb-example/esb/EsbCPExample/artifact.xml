@@ -41,4 +41,10 @@
     <artifact name="corso-payloadfactoryxml-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/corso-payloadfactoryxml-seq.xml</file>
     </artifact>
+    <artifact name="corso-payloadfactoryjson-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-payloadfactoryjson-seq.xml</file>
+    </artifact>
+    <artifact name="corso-scriptjs-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-scriptjs-seq.xml</file>
+    </artifact>
 </artifacts>

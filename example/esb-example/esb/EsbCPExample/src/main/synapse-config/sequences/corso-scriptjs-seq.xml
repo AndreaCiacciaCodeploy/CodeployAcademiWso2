@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-scriptjs-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="jsvalue" scope="default" type="STRING" value="test"/>
+    <script language="js"><![CDATA[var log = mc.getServiceLog();  
+    var payload = mc.getPayloadJSON(); 
+payload.test=mc.getProperty('jsvalue'); 
+mc.setProperty('message',payload);
+mc.setPayloadJSON(payload);
+log.info(payload);]]></script>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>
