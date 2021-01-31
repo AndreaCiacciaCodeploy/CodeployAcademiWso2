@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-filterregex-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="get-property('uri.var.operation')" name="operation" scope="default" type="STRING"/>
+    <filter regex="false" source="boolean(get-property('nonesisto'))">
+        <then>
+            <payloadFactory media-type="json">
+                <format>{ "message": "operazione 1" }</format>
+                <args/>
+            </payloadFactory>
+        </then>
+        <else>
+            <payloadFactory media-type="json">
+                <format>{ "message": "property non presente" }</format>
+                <args/>
+            </payloadFactory>
+        </else>
+    </filter>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="corso-helloworld-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <sequence key="corso-property-seq"/>
+<sequence name="corso-payloadfactoryjson-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="json-eval($.number)" name="number" scope="default" type="STRING"/>
     <payloadFactory media-type="json">
-        <format>{ "message": "buongiorno e benvenuti al corso wso2" }</format>
-        <args/>
+        <format>{ "message": "$1" }</format>
+        <args>
+            <arg evaluator="xml" expression="get-property('number')" xmlns:ns="http://org.apache.synapse/xsd"/>
+        </args>
     </payloadFactory>
     <call-template description="response-tm" target="response-tm">
         <with-param name="data" value="{json-eval($.)}"/>

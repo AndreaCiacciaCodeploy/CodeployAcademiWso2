@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-clone-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <clone id="myClone">
+        <target>
+            <sequence>
+                <call-template description="jsonplaceholder-user-tm" target="jsonplaceholder-user-tm"/>
+            </sequence>
+        </target>
+        <target>
+            <sequence>
+                <call-template description="jsonplaceholder-user-tm" target="jsonplaceholder-user-tm"/>
+            </sequence>
+        </target>
+        <target>
+            <sequence>
+                <call-template description="jsonplaceholder-user-tm" target="jsonplaceholder-user-tm"/>
+            </sequence>
+        </target>
+    </clone>
+    <property name="resultRoot" scope="default">
+        <jsonArray xmlns=""/>
+    </property>
+    <aggregate id="myClone">
+        <completeCondition>
+            <messageCount max="-1" min="-1"/>
+        </completeCondition>
+        <onComplete enclosingElementProperty="resultRoot" expression="//jsonObject">
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <call-template description="response-tm" target="response-tm">
+                <with-param name="data" value="{json-eval($.)}"/>
+                <with-param name="code" value="200"/>
+                <with-param name="message" value="Success"/>
+                <with-param name="httpresponsecode" value="200"/>
+            </call-template>
+            <respond/>
+        </onComplete>
+    </aggregate>
+</sequence>

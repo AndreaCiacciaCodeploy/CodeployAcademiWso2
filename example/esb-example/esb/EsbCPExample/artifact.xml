@@ -20,4 +20,55 @@
     <artifact name="jsonplaceholder-user-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/templates/jsonplaceholder-user-tm.xml</file>
     </artifact>
+    <artifact name="corso-property-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-property-seq.xml</file>
+    </artifact>
+    <artifact name="api-corso-mediators" groupId="com.corso.wso2.esb-example.EsbCPExample.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api-corso-mediators.xml</file>
+    </artifact>
+    <artifact name="corso-filter-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-filter-seq.xml</file>
+    </artifact>
+    <artifact name="corso-filterregex-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-filterregex-seq.xml</file>
+    </artifact>
+    <artifact name="corso-switch-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-switch-seq.xml</file>
+    </artifact>
+    <artifact name="errorresponse-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/errorresponse-tm.xml</file>
+    </artifact>
+    <artifact name="corso-payloadfactoryxml-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-payloadfactoryxml-seq.xml</file>
+    </artifact>
+    <artifact name="corso-payloadfactoryjson-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-payloadfactoryjson-seq.xml</file>
+    </artifact>
+    <artifact name="corso-scriptjs-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-scriptjs-seq.xml</file>
+    </artifact>
+    <artifact name="corso-sample-proxy" groupId="com.corso.wso2.esb-example.EsbCPExample.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/corso-sample-proxy.xml</file>
+    </artifact>
+    <artifact name="corso-enrichforeach-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-enrichforeach-seq.xml</file>
+    </artifact>
+    <artifact name="jsonplaceholder-posts-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/jsonplaceholder-posts-tm.xml</file>
+    </artifact>
+    <artifact name="corso-foreach-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-foreach-seq.xml</file>
+    </artifact>
+    <artifact name="corso-iterate-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-iterate-seq.xml</file>
+    </artifact>
+    <artifact name="jsonplaceholder-users-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/jsonplaceholder-users-tm.xml</file>
+    </artifact>
+    <artifact name="jsonplaceholder-posts-filter-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/jsonplaceholder-posts-filter-tm.xml</file>
+    </artifact>
+    <artifact name="corso-clone-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-clone-seq.xml</file>
+    </artifact>
 </artifacts>

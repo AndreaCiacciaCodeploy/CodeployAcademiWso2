@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-iterate-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call-template description="jsonplaceholder-users-tm" target="jsonplaceholder-users-tm"/>
+    <payloadFactory media-type="json">
+        <format>{"data":$1}</format>
+        <args>
+            <arg evaluator="json" expression="$."/>
+        </args>
+    </payloadFactory>
+    <iterate continueParent="true" expression="//data" id="myIterate">
+        <target>
+            <sequence>
+                <property expression="json-eval($.data.id)" name="current_userid" scope="default" type="STRING"/>
+                <property expression="json-eval($.data.name)" name="current_name" scope="default" type="STRING"/>
+                <property expression="json-eval($.data.email)" name="current_email" scope="default" type="STRING"/>
+                <call-template description="jsonplaceholder-posts-filter-tm" target="jsonplaceholder-posts-filter-tm"/>
+                <script language="js"><![CDATA[var payload = mc.getPayloadJSON();
+						var arrayproducts = payload;
+						var arrayproductssize = arrayproducts.length;
+						mc.setProperty('products_count', arrayproductssize);]]></script>
+                <payloadFactory media-type="json">
+                    <format>{
+						"user_id":$1,
+						"user_name":"$2",
+						"user_email":"$3",
+						"user_nro_post":"$4"
+						}</format>
+                    <args>
+                        <arg evaluator="xml" expression="get-property('current_userid')"/>
+                        <arg evaluator="xml" expression="get-property('current_name')"/>
+                        <arg evaluator="xml" expression="get-property('current_email')"/>
+                        <arg evaluator="xml" expression="get-property('products_count')"/>
+                    </args>
+                </payloadFactory>
+            </sequence>
+        </target>
+    </iterate>
+    <property name="resultRoot" scope="default">
+        <jsonArray xmlns=""/>
+    </property>
+    <aggregate id="myIterate">
+        <completeCondition timeout="10">
+            <messageCount max="-1" min="-1"/>
+        </completeCondition>
+        <onComplete enclosingElementProperty="resultRoot" expression="//jsonObject">
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <call-template description="response-tm" target="response-tm">
+                <with-param name="data" value="{json-eval($.)}"/>
+                <with-param name="code" value="200"/>
+                <with-param name="message" value="Success"/>
+                <with-param name="httpresponsecode" value="200"/>
+            </call-template>
+            <respond/>
+        </onComplete>
+    </aggregate>
+</sequence>

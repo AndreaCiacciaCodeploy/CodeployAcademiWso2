@@ -5,5 +5,6 @@
         <call>
             <endpoint key="gov:/example/jsonplaceholder-user-ep.xml"/>
         </call>
+        <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
     </sequence>
 </template>

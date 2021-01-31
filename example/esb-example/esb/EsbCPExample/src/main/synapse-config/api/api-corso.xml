@@ -2,6 +2,9 @@
 <api context="/api/corso" name="api-corso" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" protocol="http" uri-template="/hello">
         <inSequence>
+            <log level="custom">
+                <property name="log_test" value="chiamata hello"/>
+            </log>
             <sequence key="corso-helloworld-seq"/>
         </inSequence>
         <outSequence/>
@@ -44,6 +47,7 @@
     </resource>
     <resource methods="GET" protocol="http" uri-template="/jsonplaceholder/user">
         <inSequence>
+            <log level="full"/>
             <sequence key="corso-helloworld-jsonplaceholder-seq"/>
         </inSequence>
         <outSequence/>

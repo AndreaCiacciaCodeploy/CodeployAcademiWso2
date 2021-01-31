@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api/corso/mediators" name="api-corso-mediators" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/filter?op={operation}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.operation')" name="operation"/>
+            </log>
+            <sequence key="corso-filter-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/filter/regex?op={operation}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.operation')" name="operation"/>
+            </log>
+            <sequence key="corso-filterregex-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/switch?op={operation}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.operation')" name="operation"/>
+            </log>
+            <sequence key="corso-switch-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/payloadfactoryxml">
+        <inSequence>
+            <sequence key="corso-payloadfactoryxml-seq"/>
+        </inSequence>
+        <outSequence>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <send/>
+        </outSequence>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/payloadfactoryjson">
+        <inSequence>
+            <sequence key="corso-payloadfactoryjson-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/scriptjs">
+        <inSequence>
+            <sequence key="corso-scriptjs-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/foreach">
+        <inSequence>
+            <sequence key="corso-foreach-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/enrichforeach">
+        <inSequence>
+            <sequence key="corso-enrichforeach-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/iterate">
+        <inSequence>
+            <sequence key="corso-iterate-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/clone">
+        <inSequence>
+            <sequence key="corso-clone-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+</api>
