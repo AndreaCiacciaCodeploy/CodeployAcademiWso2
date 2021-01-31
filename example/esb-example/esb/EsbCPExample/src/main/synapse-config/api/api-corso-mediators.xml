@@ -120,4 +120,16 @@
             </call-template>
         </faultSequence>
     </resource>
+    <resource methods="GET" protocol="http" uri-template="/clone">
+        <inSequence>
+            <sequence key="corso-clone-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
 </api>

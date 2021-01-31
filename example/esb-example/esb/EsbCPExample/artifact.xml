@@ -68,4 +68,7 @@
     <artifact name="jsonplaceholder-posts-filter-tm" groupId="com.corso.wso2.esb-example.EsbCPExample.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/templates/jsonplaceholder-posts-filter-tm.xml</file>
     </artifact>
+    <artifact name="corso-clone-seq" groupId="com.corso.wso2.esb-example.EsbCPExample.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/corso-clone-seq.xml</file>
+    </artifact>
 </artifacts>
