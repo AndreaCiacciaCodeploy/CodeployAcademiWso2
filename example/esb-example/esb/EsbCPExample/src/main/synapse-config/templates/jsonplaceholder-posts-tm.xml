@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="jsonplaceholder-posts-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence>
+        <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+        <call>
+            <endpoint key="gov:/example/jsonplaceholder-posts-ep.xml"/>
+        </call>
+    </sequence>
+</template>

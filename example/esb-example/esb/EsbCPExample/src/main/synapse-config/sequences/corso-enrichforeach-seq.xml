@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="corso-enrichforeach-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call-template description="jsonplaceholder-posts-tm" target="jsonplaceholder-posts-tm"/>
+    <enrich>
+        <source clone="true" type="inline">
+            <jsonArray/>
+        </source>
+        <target property="RootElm" type="property"/>
+    </enrich>
+    <!-- ciclo array original -->
+    <foreach expression="//jsonArray/jsonElement" id="MyIterator">
+        <sequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <jsonArray>
+                        <post_id>$1</post_id>
+                        <post_description>$2</post_description>
+                    </jsonArray>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="//id"/>
+                    <arg evaluator="xml" expression="//body"/>
+                </args>
+            </payloadFactory>
+            <enrich>
+                <source clone="true" type="body"/>
+                <target action="child" xpath="$ctx:RootElm"/>
+            </enrich>
+        </sequence>
+    </foreach>
+    <enrich>
+        <source clone="true" type="inline">
+            <jsonArray>
+                <post_id>101</post_id>
+                <post_description>questo è un post bellissimo</post_description>
+            </jsonArray>
+        </source>
+        <target action="child" xpath="$ctx:RootElm"/>
+    </enrich>
+    <enrich>
+        <source clone="true" property="RootElm" type="property"/>
+        <target type="body"/>
+    </enrich>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

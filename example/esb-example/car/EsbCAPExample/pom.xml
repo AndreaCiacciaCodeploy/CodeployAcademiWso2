@@ -15,9 +15,13 @@
     <com.corso.wso2.esb-example.EsbCPExample.proxy-service_._corso-sample-proxy>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.proxy-service_._corso-sample-proxy>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-helloworld-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-helloworld-seq>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-filterregex-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-filterregex-seq>
+    <com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-posts-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-posts-tm>
+    <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-foreach-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-foreach-seq>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-payloadfactoryjson-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-payloadfactoryjson-seq>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-scriptjs-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-scriptjs-seq>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-filter-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-filter-seq>
+    <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-enrichforeach-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-enrichforeach-seq>
+    <com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-users-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-users-tm>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-helloworlduser-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-helloworlduser-seq>
     <com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-user-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-user-tm>
     <com.corso.wso2.esb-example.EsbCPExample.template_._response-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.template_._response-tm>
@@ -25,19 +29,21 @@
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
     <com.corso.wso2.esb-example.EsbCPExample.template_._errorhandler-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.template_._errorhandler-tm>
     <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-property-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-property-seq>
+    <com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-iterate-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.sequence_._corso-iterate-seq>
     <com.corso.wso2.esb-example.EsbCPExample.api_._api-corso-mediators>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.api_._api-corso-mediators>
     <com.corso.wso2.esb-example.EsbCPExample.api_._api-corso>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.api_._api-corso>
+    <com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-posts-filter-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-example.EsbCPExample.template_._jsonplaceholder-posts-filter-tm>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>com.corso.wso2.esb-example.EsbCPExample.template</groupId>
-      <artifactId>jsonplaceholder-user-tm</artifactId>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.api</groupId>
+      <artifactId>api-corso-mediators</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>com.corso.wso2.esb-example.EsbCPExample.api</groupId>
-      <artifactId>api-corso-mediators</artifactId>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.template</groupId>
+      <artifactId>jsonplaceholder-user-tm</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -78,6 +84,12 @@
       <type>xml</type>
     </dependency>
     <dependency>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.template</groupId>
+      <artifactId>jsonplaceholder-posts-tm</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
       <groupId>com.corso.wso2.esb-example.EsbCPExample.sequence</groupId>
       <artifactId>corso-payloadfactoryxml-seq</artifactId>
       <version>1.0.0</version>
@@ -86,6 +98,12 @@
     <dependency>
       <groupId>com.corso.wso2.esb-example.EsbCPExample.proxy-service</groupId>
       <artifactId>corso-sample-proxy</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.template</groupId>
+      <artifactId>jsonplaceholder-posts-filter-tm</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -114,6 +132,18 @@
       <type>xml</type>
     </dependency>
     <dependency>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.sequence</groupId>
+      <artifactId>corso-iterate-seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.template</groupId>
+      <artifactId>jsonplaceholder-users-tm</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
       <groupId>com.corso.wso2.esb-example.EsbCPExample.template</groupId>
       <artifactId>response-tm</artifactId>
       <version>1.0.0</version>
@@ -121,7 +151,19 @@
     </dependency>
     <dependency>
       <groupId>com.corso.wso2.esb-example.EsbCPExample.sequence</groupId>
+      <artifactId>corso-enrichforeach-seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.sequence</groupId>
       <artifactId>corso-switch-seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-example.EsbCPExample.sequence</groupId>
+      <artifactId>corso-foreach-seq</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
