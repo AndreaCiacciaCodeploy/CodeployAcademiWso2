@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <proxy name="corso-sample-proxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
-        <inSequence/>
+        <inSequence>
+            <log level="full"/>
+            <property expression="//math:add" name="add" scope="default" type="STRING" xmlns:math="http://example.org/math"/>
+            <property expression="//math:x/text()" name="x" scope="default" type="INTEGER" xmlns:math="http://example.org/math"/>
+            <property expression="//math:y/text()" name="y" scope="default" type="INTEGER" xmlns:math="http://example.org/math"/>
+            <script language="js"><![CDATA[var value1 = mc.getProperty('x');
+            var value2 = mc.getProperty('y');
+            var result = value1 + value2;
+            mc.setProperty('result', result);]]></script>
+            <log level="custom">
+                <property expression="get-property('add')" name="add_log"/>
+                <property expression="get-property('x')" name="x_log"/>
+                <property expression="get-property('y')" name="y_log"/>
+                <property expression="get-property('result')" name="result_log"/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <answer xmlns="http://Audit.advicegroup.it/">
+                        <result>$1</result>
+                    </answer>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('result')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
         <outSequence/>
         <faultSequence/>
     </target>
+    <publishWSDL uri="https://github.com/AndreaCiacciaCodeploy/CodeployAcademyWso2/raw/develop/example/math_sample.wsdl"/>
 </proxy>
