@@ -2,10 +2,17 @@
 <template name="listuseralbum-tm" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="userid"/>
     <sequence>
+        <property expression="$func:userid" name="uri.var.userid" scope="default" type="STRING"/>
         <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+        <log level="custom">
+            <property expression="get-property('userid')" name="useridlog"/>
+        </log>
         <call>
             <endpoint key="gov:/workshop1/workshop1-useralbum-ep.xml"/>
         </call>
+        <log level="custom">
+            <property expression="json-eval($.)" name="jsonresp"/>
+        </log>
         <filter regex="200" source="$axis2:HTTP_SC" xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns2="http://org.apache.synapse/xsd">
             <then/>
             <else>

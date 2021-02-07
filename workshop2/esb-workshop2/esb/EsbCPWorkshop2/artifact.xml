@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><artifacts/>
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="api-workshop2" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api-workshop2.xml</file>
+    </artifact>
+    <artifact name="usersenrich-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/usersenrich-seq.xml</file>
+    </artifact>
+    <artifact name="userdetail-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/userdetail-seq.xml</file>
+    </artifact>
+</artifacts>
