@@ -13,4 +13,11 @@
             <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
         </item>
     </artifact>
+    <artifact name="workshop1-edit-post-ep" groupId="com.corso.wso2.esb-workshop1.EsbREGWorkshop1-dev.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>workshop1/workshop1-edit-post-ep.xml</file>
+            <path>/_system/governance/workshop1</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
 </artifacts>

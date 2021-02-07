@@ -9,14 +9,16 @@
   <name>EsbCAPWorkshop1</name>
   <description>EsbCAPWorkshop1</description>
   <properties>
+    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api_._api-workshop1>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api_._api-workshop1>
+    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._createpost-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._createpost-tm>
+    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._listusers-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._listusers-seq>
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._user-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._user-seq>
-    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api_._api-workshop1>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api_._api-workshop1>
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._user-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._user-tm>
-    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._createpost-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._createpost-tm>
-    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpost-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpost-seq>
+    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._editpost-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._editpost-seq>
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._users-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._users-tm>
-    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpost-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpost-seq>
+    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._editpost-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._editpost-tm>
   </properties>
   <dependencies>
     <dependency>
@@ -51,7 +53,19 @@
     </dependency>
     <dependency>
       <groupId>com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence</groupId>
+      <artifactId>editpost-seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence</groupId>
       <artifactId>createpost-seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template</groupId>
+      <artifactId>editpost-tm</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

@@ -8,6 +8,8 @@
                     <property name="condizione" value="true"/>
                 </log>
                 <property expression="$func:userid" name="userid" scope="default" type="STRING"/>
+                <!-- NOTE: Attenzione a prendere i valori con json-eval dentro i template. 
+					Il payload deve arrivare come ci aspettiamo. Diversamente usare i parametri -->
                 <payloadFactory media-type="json">
                     <format>
 						{

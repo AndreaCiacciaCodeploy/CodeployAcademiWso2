@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="workshop1-edit-post-ep" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="put" uri-template="https://jsonplaceholder.typicode.com/posts/{uri.var.postid}"/>
+</endpoint>

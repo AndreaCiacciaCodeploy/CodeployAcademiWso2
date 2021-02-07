@@ -11,6 +11,7 @@
             <property expression="$func:message" name="tm_pin_message"/>
             <property expression="$func:httpresponsecode" name="tm_pin_httpresponsecode"/>
         </log>
+        <property expression="$func:data" name="data" scope="default" type="STRING"/>
         <filter xmlns:ns="http://org.apache.synapse/xsd" xpath="get-property('data') = 'ND'">
             <then>
                 <payloadFactory media-type="json">
