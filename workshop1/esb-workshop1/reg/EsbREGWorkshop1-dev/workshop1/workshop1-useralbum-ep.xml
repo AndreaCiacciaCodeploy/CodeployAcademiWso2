@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="workshop1-useralbum-ep" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="https://jsonplaceholder.typicode.com/albums?userId={uri.var.userid}"/>
+</endpoint>

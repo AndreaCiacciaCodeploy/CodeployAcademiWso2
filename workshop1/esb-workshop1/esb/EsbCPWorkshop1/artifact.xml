@@ -29,4 +29,25 @@
     <artifact name="createpostv2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/createpostv2-seq.xml</file>
     </artifact>
+    <artifact name="listusers2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusers2-seq.xml</file>
+    </artifact>
+    <artifact name="listusertodos-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusertodos-seq.xml</file>
+    </artifact>
+    <artifact name="listusertodos-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/listusertodos-tm.xml</file>
+    </artifact>
+    <artifact name="listobjects-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listobjects-seq.xml</file>
+    </artifact>
+    <artifact name="listuserposts-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/listuserposts-tm.xml</file>
+    </artifact>
+    <artifact name="listuseralbum-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/listuseralbum-tm.xml</file>
+    </artifact>
+    <artifact name="listusertodos2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusertodos2-seq.xml</file>
+    </artifact>
 </artifacts>

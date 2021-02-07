@@ -3,6 +3,23 @@
     <property expression="json-eval($.titolo)" name="title" scope="default" type="STRING"/>
     <property expression="json-eval($.descrizione)" name="body" scope="default" type="STRING"/>
     <property expression="json-eval($.idutente)" name="userid" scope="default" type="STRING"/>
+    <filter xmlns:ns="http://org.apache.synapse/xsd" xpath="get-property('title')!='' and get-property('body')!='' and get-property('userid')!=''">
+        <then>
+            <property name="isValidInput" scope="default" type="BOOLEAN" value="true"/>
+        </then>
+        <else>
+            <property name="isValidInput" scope="default" type="BOOLEAN" value="false"/>
+        </else>
+    </filter>
+    <filter regex="false" source="get-property('isValidInput')" xmlns:ns="http://org.apache.synapse/xsd">
+        <then>
+            <call-template target="errorresponse-tm">
+                <with-param name="source" value="400"/>
+                <with-param name="text" value="one or more required input fields are missing (require: titolo, descrizion, idutente)"/>
+            </call-template>
+        </then>
+        <else/>
+    </filter>
     <payloadFactory media-type="json">
         <format>
 			{

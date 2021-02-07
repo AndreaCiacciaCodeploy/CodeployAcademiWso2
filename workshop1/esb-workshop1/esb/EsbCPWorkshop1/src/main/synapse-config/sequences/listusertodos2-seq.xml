@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="listusertodos2-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="get-property('uri.var.userid')" name="userid" scope="default" type="STRING"/>
+    <call-template description="listusertodos-tm" target="listusertodos-tm">
+        <with-param name="userid" value="{get-property('userid')}"/>
+    </call-template>
+    <log level="custom">
+        <property expression="json-eval($.)" name="todoslist"/>
+    </log>
+    <foreach expression="//jsonArray/jsonElement" id="MyIterator">
+        <sequence>
+            <property expression="//userId" name="userId" scope="default" type="STRING"/>
+            <property expression="//id" name="id" scope="default" type="STRING"/>
+            <property expression="//title" name="title" scope="default" type="STRING"/>
+            <property expression="//completed" name="completed" scope="default" type="STRING"/>
+            <filter regex="true" source="get-property('completed')">
+                <then>
+                    <property name="completed" scope="default" type="STRING" value="si"/>
+                </then>
+                <else>
+                    <property name="completed" scope="default" type="STRING" value="no"/>
+                </else>
+            </filter>
+            <payloadFactory media-type="xml">
+                <format>
+                    <jsonArray>
+                        <user_id>$1</user_id>
+                        <id>$2</id>
+                        <title>$3</title>
+                        <completed>$4</completed>
+                    </jsonArray>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('userId')"/>
+                    <arg evaluator="xml" expression="get-property('id')"/>
+                    <arg evaluator="xml" expression="get-property('title')"/>
+                    <arg evaluator="xml" expression="get-property('completed')"/>
+                </args>
+            </payloadFactory>
+        </sequence>
+    </foreach>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

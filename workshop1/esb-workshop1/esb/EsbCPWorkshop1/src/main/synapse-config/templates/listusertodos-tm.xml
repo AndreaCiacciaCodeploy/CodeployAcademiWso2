@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="listusertodos-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="userid"/>
+    <sequence>
+        <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+        <call>
+            <endpoint key="gov:/workshop1/workshop1-usertodos-ep.xml"/>
+        </call>
+        <filter regex="200" source="$axis2:HTTP_SC" xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns2="http://org.apache.synapse/xsd">
+            <then/>
+            <else>
+                <call-template target="errorresponse-tm">
+                    <with-param name="source" value="500"/>
+                    <with-param name="text" value="{$axis2:HTTP_SC_DESC}"/>
+                </call-template>
+            </else>
+        </filter>
+    </sequence>
+</template>
