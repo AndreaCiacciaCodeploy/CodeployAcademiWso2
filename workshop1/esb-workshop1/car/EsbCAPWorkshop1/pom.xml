@@ -19,6 +19,7 @@
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._users-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._users-tm>
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpost-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpost-seq>
     <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._editpost-tm>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template_._editpost-tm>
+    <com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpostv2-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence_._createpostv2-seq>
   </properties>
   <dependencies>
     <dependency>
@@ -36,6 +37,12 @@
     <dependency>
       <groupId>com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api</groupId>
       <artifactId>api-workshop1</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence</groupId>
+      <artifactId>createpostv2-seq</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

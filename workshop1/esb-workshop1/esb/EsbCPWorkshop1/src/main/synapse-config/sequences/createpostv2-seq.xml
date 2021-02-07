@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="createpostv2-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="json-eval($.titolo)" name="title" scope="default" type="STRING"/>
+    <property expression="json-eval($.descrizione)" name="body" scope="default" type="STRING"/>
+    <property expression="json-eval($.idutente)" name="userid" scope="default" type="STRING"/>
+    <payloadFactory media-type="json">
+        <format>
+			{
+			"title": "$1",
+			"body": "$2",
+			"userId": $3
+			}</format>
+        <args>
+            <arg evaluator="xml" expression="get-property('title')"/>
+            <arg evaluator="xml" expression="get-property('body')"/>
+            <arg evaluator="xml" expression="get-property('userid')"/>
+        </args>
+    </payloadFactory>
+    <call-template description="createpost-tm" target="createpost-tm">
+        <with-param name="userid" value="{get-property('userid')}"/>
+    </call-template>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

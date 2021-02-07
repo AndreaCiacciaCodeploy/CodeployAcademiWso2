@@ -54,6 +54,18 @@
             </call-template>
         </faultSequence>
     </resource>
+    <resource methods="POST" protocol="http" uri-template="/v2/post">
+        <inSequence>
+            <sequence key="createpostv2-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
     <resource methods="PUT" protocol="http" uri-template="/users/{userid}/post/{postid}">
         <inSequence>
             <log level="custom">

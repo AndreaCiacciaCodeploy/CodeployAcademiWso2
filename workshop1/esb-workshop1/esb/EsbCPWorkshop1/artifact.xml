@@ -26,4 +26,7 @@
     <artifact name="editpost-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/templates/editpost-tm.xml</file>
     </artifact>
+    <artifact name="createpostv2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/createpostv2-seq.xml</file>
+    </artifact>
 </artifacts>
