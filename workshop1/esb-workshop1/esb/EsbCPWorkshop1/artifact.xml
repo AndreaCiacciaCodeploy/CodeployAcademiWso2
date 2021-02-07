@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?><artifacts>
-    <artifact name="api-workshop" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/api/api-workshop.xml</file>
-    </artifact>
     <artifact name="listusers-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/listusers-seq.xml</file>
     </artifact>
@@ -13,5 +10,14 @@
     </artifact>
     <artifact name="user-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/templates/user-tm.xml</file>
+    </artifact>
+    <artifact name="api-workshop1" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api-workshop1.xml</file>
+    </artifact>
+    <artifact name="createpost-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/createpost-seq.xml</file>
+    </artifact>
+    <artifact name="createpost-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/createpost-tm.xml</file>
     </artifact>
 </artifacts>

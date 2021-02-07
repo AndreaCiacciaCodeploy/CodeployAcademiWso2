@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createpost-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="userid"/>
+    <sequence>
+        <filter regex="true" source="boolean($func:userid)">
+            <then>
+                <log level="custom">
+                    <property name="condizione" value="true"/>
+                </log>
+                <property expression="$func:userid" name="userid" scope="default" type="STRING"/>
+                <payloadFactory media-type="json">
+                    <format>
+						{
+						"title": "$1",
+						"body": "$2",
+						"userId": $3
+						}</format>
+                    <args>
+                        <arg evaluator="json" expression="$.title"/>
+                        <arg evaluator="json" expression="$.body"/>
+                        <arg evaluator="xml" expression="get-property('userid')"/>
+                    </args>
+                </payloadFactory>
+                <log level="custom">
+                    <property expression="json-eval($.)" name="payload_in"/>
+                </log>
+            </then>
+            <else/>
+        </filter>
+        <call>
+            <endpoint key="gov:/workshop1/workshop1-post-ep.xml"/>
+        </call>
+        <log level="custom">
+            <property expression="$axis2:HTTP_SC" name="httpresponse"/>
+        </log>
+        <filter regex="20.*" source="$axis2:HTTP_SC">
+            <then/>
+            <else>
+                <call-template target="errorresponse-tm">
+                    <with-param name="source" value="500"/>
+                    <with-param name="text" value="{$axis2:HTTP_SC_DESC}"/>
+                </call-template>
+            </else>
+        </filter>
+    </sequence>
+</template>
