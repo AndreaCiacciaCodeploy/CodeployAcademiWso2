@@ -62,7 +62,7 @@
   </wsdl:binding>
   <wsdl:service name="HelloEndpointService">
     <wsdl:port binding="tns:HelloEndpointServiceSoapBinding" name="HelloEndpointPort">
-      <soap:address location="http://www.learnwebservices.com/services/hello"/>
+      <soap:address location="http://localhost:8280/services/HelloEndpointService.HelloEndpointPort"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

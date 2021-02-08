@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="corso-hello-proxy" startOnLoad="true" transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence/>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+    <publishWSDL uri="https://raw.githubusercontent.com/AndreaCiacciaCodeploy/CodeployAcademyWso2/develop/workshop2/hello.wsdl"/>
+</proxy>
