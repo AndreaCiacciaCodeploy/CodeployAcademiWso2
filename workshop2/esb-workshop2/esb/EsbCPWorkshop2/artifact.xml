@@ -11,7 +11,13 @@
     <artifact name="userpost-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/userpost-seq.xml</file>
     </artifact>
-    <artifact name="corso-hello-proxy" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/proxy-services/corso-hello-proxy.xml</file>
+    <artifact name="corso-echo-proxy" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/corso-echo-proxy.xml</file>
+    </artifact>
+    <artifact name="echoint-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/echoint-seq.xml</file>
+    </artifact>
+    <artifact name="echostring-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/echostring-seq.xml</file>
     </artifact>
 </artifacts>
