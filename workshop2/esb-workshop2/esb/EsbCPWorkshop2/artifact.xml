@@ -8,4 +8,7 @@
     <artifact name="userdetail-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/userdetail-seq.xml</file>
     </artifact>
+    <artifact name="userpost-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/userpost-seq.xml</file>
+    </artifact>
 </artifacts>
