@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://learnwebservices.com/services/hello" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="HelloEndpointService" targetNamespace="http://learnwebservices.com/services/hello">
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8280/services/corso-hello-proxy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="HelloEndpointService" targetNamespace="http://localhost:8280/services/corso-hello-proxy">
   <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://learnwebservices.com/services/hello" elementFormDefault="qualified" targetNamespace="http://learnwebservices.com/services/hello" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost:8280/services/corso-hello-proxy" elementFormDefault="qualified" targetNamespace="http://localhost:8280/services/corso-hello-proxy" version="1.0">
 
   <xs:element name="SayHello" type="tns:SayHello"/>
 
@@ -62,7 +62,7 @@
   </wsdl:binding>
   <wsdl:service name="HelloEndpointService">
     <wsdl:port binding="tns:HelloEndpointServiceSoapBinding" name="HelloEndpointPort">
-      <soap:address location="http://localhost:8280/services/HelloEndpointService.HelloEndpointPort"/>
+      <soap:address location="http://localhost:8280/services/corso-hello-proxy"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
