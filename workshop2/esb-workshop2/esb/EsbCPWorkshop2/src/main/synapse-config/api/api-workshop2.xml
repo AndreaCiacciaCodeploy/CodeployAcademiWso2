@@ -51,4 +51,27 @@
             </call-template>
         </faultSequence>
     </resource>
+    <resource methods="POST" protocol="http" uri-template="/jsonapi">
+        <inSequence>
+            <property expression="json-eval($.)" name="jsonKeyValue" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('jsonKeyValue')"/>
+                </args>
+            </payloadFactory>
+            <validate>
+                <schema key="gov:/workshop2/ValidationSchemaExample.json"/>
+                <on-fail>
+                    <call-template description="errorhandler-tm" target="errorhandler-tm">
+                        <with-param name="source" value="500"/>
+                        <with-param name="text" value="Internal Server Error"/>
+                    </call-template>
+                </on-fail>
+            </validate>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
 </api>
