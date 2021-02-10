@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="listusers2-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+    <send>
+        <endpoint key="gov:/example/jsonplaceholder-users-ep.xml"/>
+    </send>
+</sequence>

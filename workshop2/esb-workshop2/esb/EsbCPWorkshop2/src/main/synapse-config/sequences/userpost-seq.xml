@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="userpost-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="get-property('uri.var.userid')" name="userid" scope="default" type="STRING"/>
+    <clone id="myClone">
+        <target>
+            <sequence>
+                <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+                <call>
+                    <endpoint name="jsonplaceholder-user-ep">
+                        <http method="get" uri-template="https://jsonplaceholder.typicode.com/users/2"/>
+                    </endpoint>
+                </call>
+                <payloadFactory media-type="json">
+                    <format>{
+						"data":$1
+						}</format>
+                    <args>
+                        <arg evaluator="json" expression="$."/>
+                    </args>
+                </payloadFactory>
+            </sequence>
+        </target>
+        <target>
+            <sequence>
+                <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+                <call-template description="listuseralbum-tm" target="listuseralbum-tm">
+                    <with-param name="userid" value="{get-property('userid')}"/>
+                </call-template>
+                <payloadFactory media-type="json">
+                    <format>{
+						"data":$1
+						}</format>
+                    <args>
+                        <arg evaluator="json" expression="$."/>
+                    </args>
+                </payloadFactory>
+            </sequence>
+        </target>
+    </clone>
+    <property name="ECNCLOSING_ELEMENT" scope="default">
+        <wrapper xmlns=""/>
+    </property>
+    <aggregate id="myClone">
+        <completeCondition>
+            <messageCount max="-1" min="-1"/>
+        </completeCondition>
+        <onComplete enclosingElementProperty="ECNCLOSING_ELEMENT" expression="//data">
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <call-template description="response-tm" target="response-tm">
+                <with-param name="data" value="{json-eval($.)}"/>
+                <with-param name="code" value="200"/>
+                <with-param name="message" value="Success"/>
+                <with-param name="httpresponsecode" value="200"/>
+            </call-template>
+            <respond/>
+        </onComplete>
+    </aggregate>
+</sequence>

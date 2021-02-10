@@ -18,7 +18,7 @@
             </log>
             <payloadFactory media-type="xml">
                 <format>
-                    <answer xmlns="http://Audit.advicegroup.it/">
+                    <answer>
                         <result>$1</result>
                     </answer>
                 </format>

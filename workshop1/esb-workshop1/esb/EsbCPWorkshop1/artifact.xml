@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="listusers-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusers-seq.xml</file>
+    </artifact>
+    <artifact name="users-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/users-tm.xml</file>
+    </artifact>
+    <artifact name="user-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/user-seq.xml</file>
+    </artifact>
+    <artifact name="user-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/user-tm.xml</file>
+    </artifact>
+    <artifact name="api-workshop1" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api-workshop1.xml</file>
+    </artifact>
+    <artifact name="createpost-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/createpost-seq.xml</file>
+    </artifact>
+    <artifact name="createpost-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/createpost-tm.xml</file>
+    </artifact>
+    <artifact name="editpost-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/editpost-seq.xml</file>
+    </artifact>
+    <artifact name="editpost-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/editpost-tm.xml</file>
+    </artifact>
+    <artifact name="createpostv2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/createpostv2-seq.xml</file>
+    </artifact>
+    <artifact name="listusers2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusers2-seq.xml</file>
+    </artifact>
+    <artifact name="listusertodos-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusertodos-seq.xml</file>
+    </artifact>
+    <artifact name="listusertodos-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/listusertodos-tm.xml</file>
+    </artifact>
+    <artifact name="listobjects-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listobjects-seq.xml</file>
+    </artifact>
+    <artifact name="listuserposts-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/listuserposts-tm.xml</file>
+    </artifact>
+    <artifact name="listuseralbum-tm" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/listuseralbum-tm.xml</file>
+    </artifact>
+    <artifact name="listusertodos2-seq" groupId="com.corso.wso2.esb-workshop1.EsbCPWorkshop1.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/listusertodos2-seq.xml</file>
+    </artifact>
+</artifacts>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="listobjects-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property expression="get-property('uri.var.userid')" name="userid" scope="default" type="STRING"/>
+    <property expression="$ctx:query.param.type" name="operation" scope="default" type="STRING"/>
+    <switch source="get-property('operation')">
+        <case regex="post">
+            <call-template description="listuserposts-tm" target="listuserposts-tm">
+                <with-param name="userid" value="{get-property('userid')}"/>
+            </call-template>
+        </case>
+        <case regex="todo">
+            <call-template description="listusertodos-tm" target="listusertodos-tm">
+                <with-param name="userid" value="{get-property('userid')}"/>
+            </call-template>
+        </case>
+        <case regex="album">
+            <call-template description="listuseralbum-tm" target="listuseralbum-tm">
+                <with-param name="userid" value="{get-property('userid')}"/>
+            </call-template>
+        </case>
+        <default>
+            <call-template description="errorresponse-tm" target="errorresponse-tm">
+                <with-param name="source" value="200"/>
+                <with-param name="text" value="valore non consentito"/>
+            </call-template>
+            <respond/>
+        </default>
+    </switch>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="usersenrich-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call-template description="users-tm" target="users-tm"/>
+    <enrich>
+        <source clone="true" type="inline">
+            <jsonArray/>
+        </source>
+        <target property="RootElm" type="property"/>
+    </enrich>
+    <!-- ciclo array original -->
+    <foreach expression="//jsonArray/jsonElement" id="MyIterator">
+        <sequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <jsonArray>
+                        <id>$1</id>
+                        <name>$2</name>
+                        <username>$3</username>
+                    </jsonArray>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="//id"/>
+                    <arg evaluator="xml" expression="//name"/>
+                    <arg evaluator="xml" expression="//username"/>
+                </args>
+            </payloadFactory>
+            <enrich>
+                <source clone="true" type="body"/>
+                <target action="child" xpath="$ctx:RootElm"/>
+            </enrich>
+        </sequence>
+    </foreach>
+    <enrich>
+        <source clone="true" type="inline">
+            <jsonArray>
+                <id>11</id>
+                <name>corso</name>
+                <username>wso2</username>
+            </jsonArray>
+        </source>
+        <target action="child" xpath="$ctx:RootElm"/>
+    </enrich>
+    <enrich>
+        <source clone="true" property="RootElm" type="property"/>
+        <target type="body"/>
+    </enrich>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+    <respond/>
+</sequence>

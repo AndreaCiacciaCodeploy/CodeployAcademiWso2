@@ -17,14 +17,14 @@
             </sequence>
         </target>
     </clone>
-    <property name="resultRoot" scope="default">
-        <jsonArray xmlns=""/>
+    <property name="ECNCLOSING_ELEMENT" scope="default">
+        <jsonArray/>
     </property>
     <aggregate id="myClone">
         <completeCondition>
             <messageCount max="-1" min="-1"/>
         </completeCondition>
-        <onComplete enclosingElementProperty="resultRoot" expression="//jsonObject">
+        <onComplete enclosingElementProperty="ECNCLOSING_ELEMENT" expression="//jsonObject">
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <call-template description="response-tm" target="response-tm">
                 <with-param name="data" value="{json-eval($.)}"/>

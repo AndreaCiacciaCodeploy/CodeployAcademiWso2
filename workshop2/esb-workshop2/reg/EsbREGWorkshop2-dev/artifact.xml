@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ValidationSchemaExample_json" groupId="com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource" version="1.0.0" type="registry/resource" serverRole="GovernanceRegistry">
+        <item>
+            <file>workshop2/ValidationSchemaExample.json</file>
+            <path>/_system/governance/woskshop2</path>
+            <mediaType>application/json</mediaType>
+        </item>
+    </artifact>
+</artifacts>

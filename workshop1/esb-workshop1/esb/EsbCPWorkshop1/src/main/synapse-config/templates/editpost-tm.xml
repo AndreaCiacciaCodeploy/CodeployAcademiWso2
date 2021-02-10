@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="editpost-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="userid"/>
+    <parameter name="postid"/>
+    <sequence>
+        <payloadFactory media-type="json">
+            <format>
+				{
+				"id":$1,
+				"userId":$2,
+				"title": "$3",
+				"body": "$4"
+				}</format>
+            <args>
+                <arg evaluator="xml" expression="$func:postid"/>
+                <arg evaluator="xml" expression="$func:userid"/>
+                <arg evaluator="json" expression="$.title"/>
+                <arg evaluator="json" expression="$.body"/>
+            </args>
+        </payloadFactory>
+        <log level="custom">
+            <property expression="json-eval($.)" name="payload_in"/>
+        </log>
+        <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
+        <call>
+            <endpoint key="gov:/workshop1/workshop1-edit-post-ep.xml"/>
+        </call>
+        <log level="custom">
+            <property expression="$axis2:HTTP_SC" name="httpresponse"/>
+        </log>
+        <filter regex="20.*" source="$axis2:HTTP_SC">
+            <then/>
+            <else>
+                <call-template target="errorresponse-tm">
+                    <with-param name="source" value="500"/>
+                    <with-param name="text" value="{$axis2:HTTP_SC_DESC}"/>
+                </call-template>
+            </else>
+        </filter>
+    </sequence>
+</template>

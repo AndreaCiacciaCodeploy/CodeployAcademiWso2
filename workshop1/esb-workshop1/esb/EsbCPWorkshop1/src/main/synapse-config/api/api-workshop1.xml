@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api/workshop1" name="api-workshop1" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/users">
+        <inSequence>
+            <log level="custom">
+                <property name="sequence_name" value="listusers-seq"/>
+            </log>
+            <sequence key="listusers-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/v2/users">
+        <inSequence>
+            <sequence key="listusers2-seq"/>
+        </inSequence>
+        <outSequence>
+            <call-template description="response-tm" target="response-tm">
+                <with-param name="data" value="{json-eval($.)}"/>
+                <with-param name="code" value="200"/>
+                <with-param name="message" value="Success"/>
+                <with-param name="httpresponsecode" value="200"/>
+            </call-template>
+        </outSequence>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/users/{userid}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.userid')" name="useridlog"/>
+            </log>
+            <sequence key="user-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/post">
+        <inSequence>
+            <sequence key="createpost-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/users/{userid}/post">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.userid')" name="useridlog"/>
+            </log>
+            <sequence key="createpost-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/v2/post">
+        <inSequence>
+            <sequence key="createpostv2-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="PUT" protocol="http" uri-template="/users/{userid}/post/{postid}">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('uri.var.userid')" name="useridlog"/>
+            </log>
+            <sequence key="editpost-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/users/{userid}/todos">
+        <inSequence>
+            <sequence key="listusertodos-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/users/{userid}/objects">
+        <inSequence>
+            <sequence key="listobjects-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/v2/users/{userid}/todos">
+        <inSequence>
+            <sequence key="listusertodos2-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+</api>

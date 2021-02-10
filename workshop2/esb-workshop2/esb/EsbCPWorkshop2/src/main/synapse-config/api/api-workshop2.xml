@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api/workshop2" name="api-workshop2" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http" uri-template="/users">
+        <inSequence>
+            <sequence key="usersenrich-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/userdetail">
+        <inSequence>
+            <sequence key="userdetail-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/user/{userid}/userpost">
+        <inSequence>
+            <sequence key="userpost-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/echoint">
+        <inSequence>
+            <sequence key="echoint-seq"/>
+        </inSequence>
+        <outSequence>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <send/>
+        </outSequence>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" protocol="http" uri-template="/jsonapi">
+        <inSequence>
+            <property expression="json-eval($.)" name="jsonKeyValue" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('jsonKeyValue')"/>
+                </args>
+            </payloadFactory>
+            <validate>
+                <schema key="gov:/workshop2/ValidationSchemaExample.json"/>
+                <on-fail>
+                    <call-template description="errorhandler-tm" target="errorhandler-tm">
+                        <with-param name="source" value="500"/>
+                        <with-param name="text" value="Internal Server Error"/>
+                    </call-template>
+                </on-fail>
+            </validate>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
