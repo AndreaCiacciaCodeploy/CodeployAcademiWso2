@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="corso-payloadfactoryjson-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <property expression="json-eval($.number)" name="number" scope="default" type="STRING"/>
+<sequence name="registro-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="gov:/workshop2/registry-variable-seq.xml"/>
     <payloadFactory media-type="json">
-        <format>{ "message": "$1" }</format>
+        <format>
+			{
+			"user_key":"$1",
+			"user_secret":"$2"
+			}
+		</format>
         <args>
-            <arg evaluator="xml" expression="get-property('number')" xmlns:ns="http://org.apache.synapse/xsd"/>
+            <arg evaluator="xml" expression="get-property('USERKEY')"/>
+            <arg evaluator="xml" expression="get-property('USERSECRET')"/>
         </args>
     </payloadFactory>
     <call-template description="response-tm" target="response-tm">

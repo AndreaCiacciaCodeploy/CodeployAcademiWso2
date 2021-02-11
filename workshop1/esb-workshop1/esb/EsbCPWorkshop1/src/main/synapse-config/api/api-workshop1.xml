@@ -78,6 +78,7 @@
     </resource>
     <resource methods="POST" protocol="http" uri-template="/v2/post">
         <inSequence>
+            <!-- con validazione input -->
             <sequence key="createpostv2-seq"/>
         </inSequence>
         <outSequence/>

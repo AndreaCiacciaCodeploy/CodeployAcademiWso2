@@ -13,7 +13,9 @@
                 <property expression="json-eval($.data.id)" name="current_userid" scope="default" type="STRING"/>
                 <property expression="json-eval($.data.name)" name="current_name" scope="default" type="STRING"/>
                 <property expression="json-eval($.data.email)" name="current_email" scope="default" type="STRING"/>
-                <call-template description="jsonplaceholder-posts-filter-tm" target="jsonplaceholder-posts-filter-tm"/>
+                <call-template description="jsonplaceholder-posts-filter-tm" target="jsonplaceholder-posts-filter-tm">
+                    <with-param name="userid" value="{get-property('current_userid')}"/>
+                </call-template>
                 <script language="js"><![CDATA[var payload = mc.getPayloadJSON();
 						var arrayproducts = payload;
 						var arrayproductssize = arrayproducts.length;
@@ -21,14 +23,10 @@
                 <payloadFactory media-type="json">
                     <format>{
 						"user_id":$1,
-						"user_name":"$2",
-						"user_email":"$3",
-						"user_nro_post":"$4"
+						"user_nro_post":"$2"
 						}</format>
                     <args>
                         <arg evaluator="xml" expression="get-property('current_userid')"/>
-                        <arg evaluator="xml" expression="get-property('current_name')"/>
-                        <arg evaluator="xml" expression="get-property('current_email')"/>
                         <arg evaluator="xml" expression="get-property('products_count')"/>
                     </args>
                 </payloadFactory>
@@ -50,7 +48,6 @@
                 <with-param name="message" value="Success"/>
                 <with-param name="httpresponsecode" value="200"/>
             </call-template>
-            <respond/>
         </onComplete>
     </aggregate>
 </sequence>

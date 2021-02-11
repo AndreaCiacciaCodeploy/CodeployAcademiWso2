@@ -24,9 +24,9 @@
             </call-template>
         </faultSequence>
     </resource>
-    <resource methods="GET" protocol="http" uri-template="/user/{userid}/userpost">
+    <resource methods="GET" protocol="http" uri-template="/user/{userid}/useralbum">
         <inSequence>
-            <sequence key="userpost-seq"/>
+            <sequence key="useralbum-seq"/>
         </inSequence>
         <outSequence/>
         <faultSequence>
@@ -51,7 +51,7 @@
             </call-template>
         </faultSequence>
     </resource>
-    <resource methods="POST" protocol="http" uri-template="/jsonapi">
+    <resource methods="POST" protocol="http" uri-template="/validjson">
         <inSequence>
             <property expression="json-eval($.)" name="jsonKeyValue" scope="default" type="STRING"/>
             <payloadFactory media-type="json">
@@ -73,5 +73,17 @@
         </inSequence>
         <outSequence/>
         <faultSequence/>
+    </resource>
+    <resource methods="GET" protocol="http" uri-template="/registro">
+        <inSequence>
+            <sequence key="registro-seq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
     </resource>
 </api>

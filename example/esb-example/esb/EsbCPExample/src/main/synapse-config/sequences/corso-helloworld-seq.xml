@@ -11,5 +11,4 @@
         <with-param name="message" value="Success"/>
         <with-param name="httpresponsecode" value="200"/>
     </call-template>
-    <respond/>
 </sequence>

@@ -25,7 +25,6 @@
                 <with-param name="source" value="200"/>
                 <with-param name="text" value="valore non consentito"/>
             </call-template>
-            <respond/>
         </default>
     </switch>
     <call-template description="response-tm" target="response-tm">
@@ -34,5 +33,4 @@
         <with-param name="message" value="Success"/>
         <with-param name="httpresponsecode" value="200"/>
     </call-template>
-    <respond/>
 </sequence>

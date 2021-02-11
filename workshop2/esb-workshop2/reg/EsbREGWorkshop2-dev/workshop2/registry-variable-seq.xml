@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="registry-variable-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="USERKEY" scope="default" type="STRING" value="0000001"/>
+    <property name="USERSECRET" scope="default" type="STRING" value="SECRET0001"/>
+</sequence>

@@ -2,31 +2,15 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.corso.wso2.esb-workshop2.EsbCAPREGWorkshop2-dev</groupId>
-  <artifactId>EsbCAPREGWorkshop2-dev</artifactId>
+  <groupId>com.corso.wso2.esb-platform.EscCAPREGPLatform</groupId>
+  <artifactId>EscCAPREGPLatform</artifactId>
   <version>1.0.0</version>
   <packaging>carbon/application</packaging>
-  <name>EsbCAPREGWorkshop2-dev</name>
-  <description>EsbCAPREGWorkshop2-dev</description>
+  <name>EscCAPREGPLatform</name>
+  <description>EscCAPREGPLatform</description>
   <properties>
-    <com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource_._ValidationSchemaExample>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource_._ValidationSchemaExample>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
-    <com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource_._registry-variable-seq>capp/EnterpriseServiceBus</com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource_._registry-variable-seq>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource</groupId>
-      <artifactId>registry-variable-seq</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
-      <groupId>com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource</groupId>
-      <artifactId>ValidationSchemaExample</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-  </dependencies>
   <repositories>
     <repository>
       <releases>

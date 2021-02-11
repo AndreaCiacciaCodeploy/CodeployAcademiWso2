@@ -8,8 +8,8 @@
     <artifact name="userdetail-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/userdetail-seq.xml</file>
     </artifact>
-    <artifact name="userpost-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/sequences/userpost-seq.xml</file>
+    <artifact name="useralbum-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/useralbum-seq.xml</file>
     </artifact>
     <artifact name="corso-echo-proxy" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/proxy-services/corso-echo-proxy.xml</file>
@@ -17,7 +17,7 @@
     <artifact name="echoint-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/echoint-seq.xml</file>
     </artifact>
-    <artifact name="echostring-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/sequences/echostring-seq.xml</file>
+    <artifact name="registro-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/registro-seq.xml</file>
     </artifact>
 </artifacts>
