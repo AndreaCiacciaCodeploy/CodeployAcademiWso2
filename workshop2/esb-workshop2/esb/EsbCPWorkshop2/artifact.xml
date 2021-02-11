@@ -20,4 +20,7 @@
     <artifact name="echostring-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/echostring-seq.xml</file>
     </artifact>
+    <artifact name="registro-seq" groupId="com.corso.wso2.esb-workshop2.EsbCPWorkshop2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/registro-seq.xml</file>
+    </artifact>
 </artifacts>

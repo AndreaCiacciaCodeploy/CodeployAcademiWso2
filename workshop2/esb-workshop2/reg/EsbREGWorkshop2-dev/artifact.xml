@@ -6,4 +6,11 @@
             <mediaType>application/json</mediaType>
         </item>
     </artifact>
+    <artifact name="registry-variable-seq" groupId="com.corso.wso2.esb-workshop2.EsbREGWorkshop2-dev.resource" version="1.0.0" type="registry/resource" serverRole="GovernanceRegistry">
+        <item>
+            <file>workshop2/registry-variable-seq.xml</file>
+            <path>/_system/governance/workshop2</path>
+            <mediaType>application/vnd.wso2.sequence</mediaType>
+        </item>
+    </artifact>
 </artifacts>

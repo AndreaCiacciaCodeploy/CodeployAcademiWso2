@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template name="jsonplaceholder-posts-filter-tm" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="userid"/>
     <sequence>
+        <property expression="$func:userid" name="uri.var.current_userid" scope="default" type="STRING"/>
         <property action="remove" name="TRANSPORT_HEADERS" scope="axis2"/>
         <call>
             <endpoint key="gov:/example/jsonplaceholder-posts-filter-ep.xml"/>

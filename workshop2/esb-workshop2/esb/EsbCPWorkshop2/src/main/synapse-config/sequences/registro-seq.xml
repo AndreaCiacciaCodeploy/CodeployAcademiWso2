@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="registro-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="gov:/workshop2/registry-variable-seq.xml"/>
+    <payloadFactory media-type="json">
+        <format>
+			{
+			"user_key":"$1",
+			"user_secret":"$2"
+			}
+		</format>
+        <args>
+            <arg evaluator="xml" expression="get-property('USERKEY')"/>
+            <arg evaluator="xml" expression="get-property('USERSECRET')"/>
+        </args>
+    </payloadFactory>
+    <call-template description="response-tm" target="response-tm">
+        <with-param name="data" value="{json-eval($.)}"/>
+        <with-param name="code" value="200"/>
+        <with-param name="message" value="Success"/>
+        <with-param name="httpresponsecode" value="200"/>
+    </call-template>
+</sequence>

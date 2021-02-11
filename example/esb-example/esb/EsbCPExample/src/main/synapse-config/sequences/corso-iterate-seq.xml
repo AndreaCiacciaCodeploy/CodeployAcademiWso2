@@ -11,10 +11,11 @@
         <target>
             <sequence>
                 <property expression="json-eval($.data.id)" name="current_userid" scope="default" type="STRING"/>
-                <property expression="get-property('current_userid')" name="uri.var.current_userid" scope="default" type="STRING"/>
                 <property expression="json-eval($.data.name)" name="current_name" scope="default" type="STRING"/>
                 <property expression="json-eval($.data.email)" name="current_email" scope="default" type="STRING"/>
-                <call-template description="jsonplaceholder-posts-filter-tm" target="jsonplaceholder-posts-filter-tm"/>
+                <call-template description="jsonplaceholder-posts-filter-tm" target="jsonplaceholder-posts-filter-tm">
+                    <with-param name="userid" value="{get-property('current_userid')}"/>
+                </call-template>
                 <script language="js"><![CDATA[var payload = mc.getPayloadJSON();
 						var arrayproducts = payload;
 						var arrayproductssize = arrayproducts.length;
@@ -41,6 +42,12 @@
         </completeCondition>
         <onComplete enclosingElementProperty="resultRoot" expression="//jsonObject">
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <call-template description="response-tm" target="response-tm">
+                <with-param name="data" value="{json-eval($.)}"/>
+                <with-param name="code" value="200"/>
+                <with-param name="message" value="Success"/>
+                <with-param name="httpresponsecode" value="200"/>
+            </call-template>
         </onComplete>
     </aggregate>
 </sequence>
