@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="userpost-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+<sequence name="useralbum-seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <property expression="get-property('uri.var.userid')" name="userid" scope="default" type="STRING"/>
     <clone id="myClone">
         <target>
@@ -38,7 +38,7 @@
         </target>
     </clone>
     <property name="ECNCLOSING_ELEMENT" scope="default">
-        <wrapper xmlns=""/>
+        <jsonArray/>
     </property>
     <aggregate id="myClone">
         <completeCondition>
@@ -47,7 +47,7 @@
         <onComplete enclosingElementProperty="ECNCLOSING_ELEMENT" expression="//data">
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <call-template description="response-tm" target="response-tm">
-                <with-param name="data" value="{json-eval($.)}"/>
+                <with-param name="data" value="{json-eval($.data)}"/>
                 <with-param name="code" value="200"/>
                 <with-param name="message" value="Success"/>
                 <with-param name="httpresponsecode" value="200"/>
