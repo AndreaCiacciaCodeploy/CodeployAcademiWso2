@@ -13,6 +13,7 @@ Codice per gli esercizi del secondo workshop.
 Gli esercizi saranno svolti con la versione WSO2 ESB 5.0.0
 Verrà approfondito durante il corso la nuova versione di WSO2 Enterprise Integrator con un focus su ESB
 e sulle differenze con la versione 5.0.0.
+
 Vengono utilizzate le Rest Api mock presenti su https://jsonplaceholder.typicode.com/
 
 ## setup ambiente
