@@ -86,4 +86,22 @@
             </call-template>
         </faultSequence>
     </resource>
+    <resource methods="GET" protocol="http" uri-template="/custommediator">
+        <inSequence>
+            <property name="jwt_method" scope="default" type="STRING" value="SIMPLE"/>
+            <class name="com.corso.wso2.custom.MyCustomMediator"/>
+            <property expression="get-property('my_mediation')" name="prova" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('prova')" name="prova_log"/>
+            </log>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <call-template description="errorhandler-tm" target="errorhandler-tm">
+                <with-param name="source" value="500"/>
+                <with-param name="text" value="Internal Server Error"/>
+            </call-template>
+        </faultSequence>
+    </resource>
 </api>
