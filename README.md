@@ -12,7 +12,8 @@ Codice per gli esercizi del secondo workshop.
 
 Gli esercizi saranno svolti con la versione WSO2 ESB 5.0.0
 Verrà approfondito durante il corso la nuova versione di WSO2 Enterprise Integrator con un focus su ESB
-e sulle differenze con la versione 5.0.0
+e sulle differenze con la versione 5.0.0.
+Vengono utilizzate le Rest Api mock presenti su https://jsonplaceholder.typicode.com/
 
 ## setup ambiente
 - è necessario avere configurato JAVA sul proprio ambiente
@@ -28,3 +29,4 @@ xattr -d com.apple.quarantine Eclipse.app/
 
 Per avviare l'ambiente in locale avviare wso2esb-5.0.0/bin/wso2server.sh (unix) o wso2esb-5.0.0/bin/wso2server.bat (windows)
 La configurazione di base (per 5.0.0) avvia l'ambiente sulla porta 9443 (https://localhost:9443/carbon/admin/login.jsp)
+
