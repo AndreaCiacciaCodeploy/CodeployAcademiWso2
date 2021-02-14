@@ -7,14 +7,14 @@ Questo progetto contiene esercizi da svolgere in team durante lo svolgimento del
 E' opportuno creare i file di registro per tutti gli ambienti.
 
 ## api
-- **api-workshop1.xml** resources api
+- **api-workshop1.xml** 
 
 
 ## sequence
-- **createpost-seq.xml** sequence crea post
-- **createpostv2-seq.xml** sequence crea post modifica payload
-- **editpost-seq.xml** sequence modifica post
-- **listobjects-seq.xml** sequence switch mediator
+- **createpost-seq.xml** 
+- **createpostv2-seq.xml** 
+- **editpost-seq.xml** 
+- **listobjects-seq.xml** 
 - **listusers-seq.xml** 
 - **listusers2-seq.xml** 
 - **listusertodos-seq.xml** 
