@@ -52,7 +52,7 @@ fi
 
 if [ "$FOLDERNAME" == "proxy-services" ]; then
 
-	echo '    <artifact name="'$FNAME'" groupId="'$b'.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+	echo '    <artifact name="'$FNAME'" groupId="'$GROUPID'.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
 						<file>'$PATHTOXML'</file>
 		</artifact>' >> artifact.xml
 
